@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>cadastro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="formGroup" >
+
+        <ion-item>
+            <ion-label position="floating">Nome</ion-label>
+            <ion-input formControlName="nome"></ion-input>
+          </ion-item>
+          
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email"></ion-input>
+        </ion-item>
+        
+
+        <ion-item>
+            <ion-label position="floating">Senha</ion-label>
+            <ion-input formControlName="senha" type="password"></ion-input>
+          </ion-item>
+         
+  
+      
+      
+      <ion-button color="primary" [disabled]="formGroup.invalid" type="submit">Entrar</ion-button>
+    </form>
+</ion-content>
