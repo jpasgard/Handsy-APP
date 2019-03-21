@@ -9,7 +9,7 @@
   <form [formGroup]="formGroup" >
 
       <ion-item>
-        <ion-label position="floating">Email</ion-label>
+        <ion-label position="floating" >Email</ion-label>
         <ion-input formControlName="email"></ion-input>
       </ion-item>
     
@@ -20,7 +20,11 @@
       </ion-item>
   
       
-    <p><a (click)="redirecionarTelaCadastro()">Cadastrar</a></p> 
+      <p text-right tappable (click)="redirecionarTelaCadastro()" class="paz">
+          <ion-text color="black">
+            <strong>Cadastrar</strong>
+          </ion-text>
+      </p>
     <ion-button color="primary" [disabled]="formGroup.invalid" type="submit">Entrar</ion-button>
   </form>
 </ion-content>
