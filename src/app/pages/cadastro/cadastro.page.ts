@@ -7,7 +7,7 @@ import { NavController } from '@ionic/angular';
   templateUrl: './cadastro.page.html',
   styleUrls: ['./cadastro.page.scss'],
 })
-export class CadastroPage implements OnInit {
+export class CadastroPage {
   formGroup: FormGroup; 
   constructor(private nav: NavController, private formBiuld: FormBuilder) {
 
@@ -31,8 +31,4 @@ export class CadastroPage implements OnInit {
 
     });
    }
-
-  ngOnInit() {
-  }
-
 }
