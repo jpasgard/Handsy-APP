@@ -7,22 +7,9 @@
 
 
 <ion-content padding>
-  <div class="imagem">
+  <div padding text-center class="imagem">
     <img src="../../../assets/img/logo.png">
   </div>
-
-
-   <div>
-      <ion-segment [(ngModel)]="opt" >
-        <ion-segment-button value="signin" >
-         Sign In 
-        </ion-segment-button>
-        <ion-segment-button value="signup" (click)="redirecionarTelaCadastro()">
-         Sign Up
-        </ion-segment-button>
-      </ion-segment>
-    </div>
-  <div>
 
 
   <form [formGroup]="formGroup" >
@@ -33,17 +20,23 @@
       </ion-item>
     
    
-        <ion-item>
-          <ion-label position="floating">Senha</ion-label>
-          <ion-input formControlName="senha" type="password" ></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input formControlName="senha" type="password" ></ion-input>
+      </ion-item>
 
+      <p text-right tappable (click)="redirecionarTelaCadastro()" style="padding-top: 20px;">
+          <ion-text color="black">
+            <strong>Cadastrar</strong>
+          </ion-text>
+      </p>
 
-     <div padding text-center >
-        <ion-button color="primary" [disabled]="formGroup.invalid" type="submit">Entrar</ion-button>
-     </div>
-  </form>
+      <div padding text-center >
+          <ion-button color="primary" [disabled]="formGroup.invalid" type="submit" (click)="login()">Entrar</ion-button>
+      </div>
+    </form>
   
-</div>
+    
+
 
 </ion-content>

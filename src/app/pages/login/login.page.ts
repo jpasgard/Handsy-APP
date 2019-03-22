@@ -32,12 +32,12 @@ export class LoginPage{
       this.nav.navigateForward('cadastro');
    }
 
-   click(valor: any){
-     console.log(this.opt);
-     console.log(valor);
-   }
+   login(){
+    this.nav.navigateForward('dispositivos');
+  }
 
 }
+
 function newFunction() {
   return this;
 }
