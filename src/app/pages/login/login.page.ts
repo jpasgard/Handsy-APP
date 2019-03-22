@@ -9,6 +9,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginPage{
   public formGroup: FormGroup;
+  public opt: string = 'signin';
 
   constructor(private nav: NavController, private formBiuld: FormBuilder) {
 
@@ -29,6 +30,11 @@ export class LoginPage{
 
    redirecionarTelaCadastro(){
       this.nav.navigateForward('cadastro');
+   }
+
+   click(valor: any){
+     console.log(this.opt);
+     console.log(valor);
    }
 
 }
