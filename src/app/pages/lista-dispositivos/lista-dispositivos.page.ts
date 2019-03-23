@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { dispositivoDto } from 'src/app/model/dispositivo.dto';
 
 @Component({
@@ -6,24 +7,28 @@ import { dispositivoDto } from 'src/app/model/dispositivo.dto';
   templateUrl: './lista-dispositivos.page.html',
   styleUrls: ['./lista-dispositivos.page.scss'],
 })
-export class ListaDispositivosPage  {
- public dispositivos: dispositivoDto[] = [{
-  id:'1',
-  comodo:'quarto',
-  dispositvo:'lampada'
- },
- {
-   id:'2',
-   comodo:'sala',
-  dispositvo:'lampada'
- },
- {
-   comodo: 'cozinha'
- }
-
+export class ListaDispositivosPage implements OnInit {
+  private id: any;
+  public dispositivos: dispositivoDto[] = [{
+    id: '1', 
+    comodo: '1',
+    nomeDispositivo:'lampada',
+    estado: true
+  },
+  {
+    id: '1',
+    comodo:'1',
+    nomeDispositivo:'TV sala',
+    estado: false
+  }
 ];
-  constructor() { 
+  constructor(private activated: ActivatedRoute) {}
+
+  ngOnInit(): void {
+   this.id =  this.activated.snapshot.params.id;
     
   }
+
+  
 
 }

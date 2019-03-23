@@ -4,7 +4,9 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', loadChildren: './pages/login/login.module#LoginPageModule' },
   { path: 'cadastro', loadChildren: './pages/cadastro/cadastro.module#CadastroPageModule' },
-  { path: 'dispositivos', loadChildren: './pages/lista-dispositivos/lista-dispositivos.module#ListaDispositivosPageModule' },
+  { path: 'dispositivos/:id', loadChildren: './pages/lista-dispositivos/lista-dispositivos.module#ListaDispositivosPageModule' },
+  { path: 'comodos', loadChildren: './pages/comodos/comodos.module#ComodosPageModule' },
+
 
 
 

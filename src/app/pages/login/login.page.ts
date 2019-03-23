@@ -33,7 +33,7 @@ export class LoginPage{
    }
 
    login(){
-    this.nav.navigateForward('dispositivos');
+    this.nav.navigateForward('comodos');
   }
 
 }
