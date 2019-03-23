@@ -1,41 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-
-
-<ion-content padding>
-  <div padding text-center class="imagem">
-    <img src="../../../assets/img/logo.png">
-  </div>
-
-
+<ion-content>
   <form [formGroup]="formGroup" >
+
+      <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input formControlName="nome"></ion-input>
+        </ion-item>
 
       <ion-item>
         <ion-label position="floating" >Email</ion-label>
         <ion-input formControlName="email"></ion-input>
       </ion-item>
     
-   
+  
       <ion-item>
         <ion-label position="floating">Senha</ion-label>
         <ion-input formControlName="senha" type="password" ></ion-input>
       </ion-item>
 
-      <p text-right tappable (click)="redirecionarTelaCadastro()" style="padding-top: 20px;">
-          <ion-text color="black">
-            <strong>Cadastrar</strong>
-          </ion-text>
-      </p>
 
       <div padding text-center >
           <ion-button color="primary" [disabled]="formGroup.invalid" type="submit" (click)="login()">Entrar</ion-button>
       </div>
     </form>
-  
+
     
 
 
