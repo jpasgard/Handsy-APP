@@ -11,7 +11,9 @@
         </ion-item>
       </ion-list>
 
-      <div>
-          <button class="btn-adicionar" (click)="cadastrarDispositivo()">+</button>
-      </div>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="cadastrarDispositivo()">
+          <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
 </ion-content>

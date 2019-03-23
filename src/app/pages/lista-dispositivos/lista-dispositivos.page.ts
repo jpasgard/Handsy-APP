@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { dispositivoDto } from 'src/app/model/dispositivo.dto';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
+
 
 @Component({
   selector: 'app-lista-dispositivos',
@@ -23,7 +26,7 @@ export class ListaDispositivosPage implements OnInit {
     estado: false
   }
 ];
-  constructor(private activated: ActivatedRoute) {}
+  constructor(private activated: ActivatedRoute, private bar: QRScanner) {}
 
   ngOnInit(): void {
    this.id =  this.activated.snapshot.params.id;
@@ -31,7 +34,11 @@ export class ListaDispositivosPage implements OnInit {
   }
 
   cadastrarDispositivo(){
-    console.log('cadastrando dispositivo');
+    let scanSub = this.bar.scan().subscribe((text: string)=>{
+      console.log(text);
+      this.bar.hide();
+     scanSub.unsubscribe();
+    },error=> console.log(error));
   }
 
 }
