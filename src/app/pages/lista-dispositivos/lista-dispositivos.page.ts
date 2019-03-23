@@ -5,10 +5,11 @@ import { dispositivoDto } from 'src/app/model/dispositivo.dto';
 @Component({
   selector: 'app-lista-dispositivos',
   templateUrl: './lista-dispositivos.page.html',
-  styleUrls: ['./lista-dispositivos.page.scss'],
+  styleUrls: ['./lista-dispositivos.page.scss', '../comodos/comodos.page.scss'],
 })
 export class ListaDispositivosPage implements OnInit {
   private id: any;
+
   public dispositivos: dispositivoDto[] = [{
     id: '1', 
     comodo: '1',
@@ -26,9 +27,11 @@ export class ListaDispositivosPage implements OnInit {
 
   ngOnInit(): void {
    this.id =  this.activated.snapshot.params.id;
-    
+    console.log(this.id);
   }
 
-  
+  cadastrarDispositivo(){
+    console.log('cadastrando dispositivo');
+  }
 
 }

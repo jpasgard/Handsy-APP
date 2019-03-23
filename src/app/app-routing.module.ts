@@ -6,6 +6,8 @@ const routes: Routes = [
   { path: 'cadastro', loadChildren: './pages/cadastro/cadastro.module#CadastroPageModule' },
   { path: 'dispositivos/:id', loadChildren: './pages/lista-dispositivos/lista-dispositivos.module#ListaDispositivosPageModule' },
   { path: 'comodos', loadChildren: './pages/comodos/comodos.module#ComodosPageModule' },
+  { path: 'cadastrar/:idComodo', loadChildren: './pages/cadastrar-dispositivo/cadastrar-dispositivo.module#CadastrarDispositivoPageModule' },
+
 
 
 

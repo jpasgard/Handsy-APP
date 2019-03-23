@@ -1,5 +1,7 @@
 {
   "name": "app-handsy",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
