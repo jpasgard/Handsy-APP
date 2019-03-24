@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ComodoDto } from 'src/app/model/comodo.dto';
-import { NavController, NavParams } from '@ionic/angular';
+import { NavController, NavParams, ModalController } from '@ionic/angular';
+import { LoginPage } from '../login/login.page';
 
 @Component({
   selector: 'app-comodos',
@@ -29,9 +30,11 @@ export class ComodosPage {
   
   ];
   
-  constructor(private nav: NavController) { }
+  constructor(private nav: NavController,
+    private modalController: ModalController) { }
 
   showDispositivos(id: string){
     this.nav.navigateForward('dispositivos');
   }
 }
+

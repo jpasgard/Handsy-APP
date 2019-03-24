@@ -11,7 +11,7 @@ import { Vibration } from '@ionic-native/vibration/ngx';
   templateUrl: './lista-dispositivos.page.html',
   styleUrls: ['./lista-dispositivos.page.scss', '../comodos/comodos.page.scss'],
 })
-export class ListaDispositivosPage implements OnInit {
+export class ListaDispositivosPage{
   private id: any;
   private barcode: any;
 
@@ -33,13 +33,8 @@ export class ListaDispositivosPage implements OnInit {
     private alertController: AlertController,
     private vibration: Vibration) {}
 
-  ngOnInit(): void {
-   this.id =  this.activated.snapshot.params.id;
-    console.log(this.id);
-    console.log("entrou");
-  }
-
   cadastrarDispositivo(){
+    this.id =  this.activated.snapshot.params.id;
     this.barcodeScanner.scan().then(barcodeData => {
       this.vibration.vibrate(200);
       this.barcode = barcodeData.text;
@@ -57,6 +52,7 @@ export class ListaDispositivosPage implements OnInit {
 
     await alert.present();
   }
+  
   captureToggle(valor: any): boolean{
     return valor.detail.checked;
     }
