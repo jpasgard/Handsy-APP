@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { dispositivoDto } from 'src/app/model/dispositivo.dto';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { BarcodeScanner, BarcodeScanResult } from '@ionic-native/barcode-scanner/ngx';
 import { AlertController } from '@ionic/angular';
+import { Vibration } from '@ionic-native/vibration/ngx';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { AlertController } from '@ionic/angular';
 })
 export class ListaDispositivosPage implements OnInit {
   private id: any;
+  private barcode: any;
 
   public dispositivos: dispositivoDto[] = [{
     id: '1', 
@@ -28,7 +30,8 @@ export class ListaDispositivosPage implements OnInit {
 ];
   constructor(private activated: ActivatedRoute, 
     private barcodeScanner: BarcodeScanner,
-    private alertController: AlertController) {}
+    private alertController: AlertController,
+    private vibration: Vibration) {}
 
   ngOnInit(): void {
    this.id =  this.activated.snapshot.params.id;
@@ -38,7 +41,9 @@ export class ListaDispositivosPage implements OnInit {
 
   cadastrarDispositivo(){
     this.barcodeScanner.scan().then(barcodeData => {
-      console.log('Barcode data', barcodeData);
+      this.vibration.vibrate(200);
+      this.barcode = barcodeData.text;
+      
      }).catch(err => {
         this.presentAlert(err);
      });
