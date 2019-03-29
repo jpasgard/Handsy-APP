@@ -1,5 +1,8 @@
+import { ComodoDto } from './comodo.dto';
+
 export interface dispositivoDto{
-    id?: string,
+    id: string,
     comodo?: string,
-    dispositvo?: string
+    nomeDispositivo: string,
+    estado?: boolean
 }
