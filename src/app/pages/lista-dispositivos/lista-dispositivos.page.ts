@@ -1,6 +1,6 @@
+import { dispositivoDto } from './../../model/dispositivo.dto';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { dispositivoDto } from 'src/app/model/dispositivo.dto';
 import { BarcodeScanner, BarcodeScanResult } from '@ionic-native/barcode-scanner/ngx';
 import { AlertController } from '@ionic/angular';
 import { Vibration } from '@ionic-native/vibration/ngx';
