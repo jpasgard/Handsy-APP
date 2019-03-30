@@ -9,3 +9,61 @@
 @import '~@ionic/angular/css/text-alignment.css';
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,700');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.purple {
+    color: --purple
+}
+
+.orange {
+    color: --orange
+}
+
+.dark {
+    color: --dark
+}
+
+.snow {
+    color: --snow
+}
+
+.gray {
+    color: --gray
+}
+
+.center {
+    text-align: center;
+}
+
+.mg-top-5 {
+    margin-top: 5px;
+}
+
+.mg-top-15 {
+    margin-top: 15px;
+}
+
+.mg-top-30 {
+    margin-top: 30px;
+}
+
+.padding-top-percent {
+    padding-top: 10%;
+}
+
+.bold {
+    font-weight: 700
+}
+
+.light {
+    font-weight: 300
+}
+
+.no-margin {
+    margin: 0
+}

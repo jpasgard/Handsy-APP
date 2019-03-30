@@ -5,41 +5,18 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  styleUrls: ['./login.page.scss']
 })
-export class LoginPage{
-  public formGroup: FormGroup;
-  public opt: string = 'signin';
+export class LoginPage {
+  public login = true;
+  public register = false;
 
-  constructor(private nav: NavController, private formBiuld: FormBuilder) {
+  constructor(private nav: NavController, private formBiuld: FormBuilder) {}
 
-    this.formGroup = this.formBiuld.group({
-      email: [null, Validators.compose([
-        Validators.required,
-        Validators.email
-      
-      ])],
-
-      senha: [null, Validators.compose([
-        Validators.required
-        
-      ])]
-
-    });
-   }
-
-   redirecionarTelaCadastro(){
-      this.nav.navigateForward('cadastro');
-   }
-
-   login(){
-    this.nav.navigateForward('comodos');
+  exibir() {
+    this.login = !this.login;
+    this.register = !this.register;
   }
-
-}
-
-function newFunction() {
-  return this;
 }
 
 

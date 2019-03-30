@@ -1,42 +1,51 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-
-
 <ion-content padding>
-  <div padding text-center class="imagem">
-    <img src="../../../assets/img/logo.png">
+  <div class="bg-login">
+    <div class="overlay">
+        <ion-icon (click)="exibir()" *ngIf="register" name="arrow-round-back" class="back-btn"></ion-icon>
+        
+      <div *ngIf="login" class="center padding-top-percent">
+        <ion-icon name="people" class="icon-login-white"></ion-icon>     
+        <div class="padding-30">
+        <ion-item color="medium no-padding">
+            <ion-label position="floating" class="white bold">E-mail</ion-label>
+            <ion-input class="white" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item color="medium no-padding mg-top-5">
+            <ion-label position="floating" class="white bold">Senha</ion-label>
+            <ion-input class="white" type="password"></ion-input>
+        </ion-item>
+        
+        <div class="ctaLogin center bold mg-top-40">
+            Entrar
+        </div>
+        <div class="txtRegistar bold mg-top-20" (click)="exibir()">
+          Criar nova conta
+        </div>
+        </div>
+    </div>
+    <div *ngIf="register" class="center">
+        <ion-icon name="people" class="icon-login-white"></ion-icon>     
+        <div class="padding-30">
+        <ion-item color="medium no-padding">
+            <ion-label position="floating" class="white bold">Nome</ion-label>
+            <ion-input class="white" type="text"></ion-input>
+        </ion-item>
+        <ion-item color="medium no-padding">
+            <ion-label position="floating" class="white bold">E-mail</ion-label>
+            <ion-input class="white" type="email"></ion-input>
+        </ion-item>
+
+        <ion-item color="medium no-padding mg-top-5">
+            <ion-label position="floating" class="white bold">Senha</ion-label>
+            <ion-input class="white" type="password"></ion-input>
+        </ion-item>
+        
+        <div class="ctaLogin center bold mg-top-40">
+            Cadastrar
+        </div>
+        </div>
+    </div>
   </div>
-
-
-  <form [formGroup]="formGroup" >
-
-      <ion-item>
-        <ion-label position="floating" >Email</ion-label>
-        <ion-input formControlName="email"></ion-input>
-      </ion-item>
-    
-   
-      <ion-item>
-        <ion-label position="floating">Senha</ion-label>
-        <ion-input formControlName="senha" type="password" ></ion-input>
-      </ion-item>
-
-      <p text-right tappable (click)="redirecionarTelaCadastro()" style="padding-top: 20px;">
-          <ion-text color="black">
-            <strong>Cadastrar</strong>
-          </ion-text>
-      </p>
-      
-      <div padding text-center >
-          <ion-button color="primary"  type="submit" (click)="login()">Entrar</ion-button>
-      </div>
-    </form>
-  
-    
-
-
+  </div>
 </ion-content>
