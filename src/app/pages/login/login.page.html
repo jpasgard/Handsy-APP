@@ -3,20 +3,20 @@
     <div class="overlay">
         <ion-icon (click)="exibir()" *ngIf="register" name="arrow-round-back" class="back-btn"></ion-icon>
         
-      <div *ngIf="login" class="center padding-top-percent">
+      <div *ngIf="loginIf" class="center padding-top-percent">
         <ion-icon name="people" class="icon-login-white"></ion-icon>     
         <div class="padding-30">
         <ion-item color="medium no-padding">
             <ion-label position="floating" class="white bold">E-mail</ion-label>
-            <ion-input class="white" type="email"></ion-input>
+            <ion-input [(ngModel)]="login.email" class="white" type="email"></ion-input>
         </ion-item>
 
         <ion-item color="medium no-padding mg-top-5">
             <ion-label position="floating" class="white bold">Senha</ion-label>
-            <ion-input class="white" type="password"></ion-input>
+            <ion-input [(ngModel)]="login.senha" class="white" type="password"></ion-input>
         </ion-item>
         
-        <div class="ctaLogin center bold mg-top-40">
+        <div class="ctaLogin center bold mg-top-40" (click)="onLogin()">
             Entrar
         </div>
         <div class="txtRegistar bold mg-top-20" (click)="exibir()">
