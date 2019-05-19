@@ -1,37 +1,38 @@
-import { dispositivoDto } from './../../model/dispositivo.dto';
+import { DeviceEntity } from '../../model/device-entity';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BarcodeScanner, BarcodeScanResult } from '@ionic-native/barcode-scanner/ngx';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { HandsyService } from 'src/app/services/handsy/handsy.service';
 
 
 @Component({
   selector: 'app-lista-dispositivos',
   templateUrl: './lista-dispositivos.page.html',
-  styleUrls: ['./lista-dispositivos.page.scss', '../comodos/comodos.page.scss'],
+  styleUrls: ['./lista-dispositivos.page.scss'],
 })
 export class ListaDispositivosPage{
   private id: any;
   private barcode: any;
-
-  public dispositivos: dispositivoDto[] = [{
-    id: '1', 
-    comodo: '1',
-    nomeDispositivo:'lampada',
-    estado: true
-  },
-  {
-    id: '1',
-    comodo:'1',
-    nomeDispositivo:'TV sala',
-    estado: false
-  }
-];
-  constructor(private activated: ActivatedRoute, 
+  public devices;
+  constructor(
+    private nav: NavController,
+    private activated: ActivatedRoute, 
     private barcodeScanner: BarcodeScanner,
     private alertController: AlertController,
-    private vibration: Vibration) {}
+    private vibration: Vibration,
+    private handsyService: HandsyService) {}
+  
+  ngOnInit() {
+    this.handsyService.getDevices(localStorage.getItem('email')).subscribe(data => {
+      this.devices = data;
+    });
+  }
+  
+  logout(){
+    this.nav.navigateForward('');
+  }
 
   cadastrarDispositivo(){
     this.id =  this.activated.snapshot.params.id;
@@ -53,8 +54,10 @@ export class ListaDispositivosPage{
     await alert.present();
   }
   
-  captureToggle(valor: any): boolean{
-    return valor.detail.checked;
+  captureToggle(device: DeviceEntity) {
+    this.handsyService.saveStatusDevice(device).subscribe((response)=>{
+      console.log('Response: ' + response.deviceName + " status: " + response.status);
+    });
     }
 
 }

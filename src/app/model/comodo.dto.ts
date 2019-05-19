@@ -1,4 +1,4 @@
 export interface ComodoDto{
-    id: string,
+    id: number,
     comodo: string,
 }

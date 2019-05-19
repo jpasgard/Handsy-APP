@@ -1,15 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-back-button slot="start"></ion-back-button>
+    <ion-button slot="end" color="royal" (click)="logout()">
+        <ion-icon  color="primary" name="log-out"></ion-icon>
+    </ion-button>
     <ion-title>Dispositivos </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
     <ion-list>
-        <ion-item *ngFor="let dispositivo of dispositivos">
-          <ion-label >{{ dispositivo.nomeDispositivo }}</ion-label>
-          <ion-toggle checked="{{dispositivo.estado}}" (ionChange)="captureToggle($event)"></ion-toggle>
+        <ion-item *ngFor="let device of devices">
+          <ion-label >{{ device.deviceName }}</ion-label>
+          <ion-toggle [(ngModel)]="device.status" (ionChange)="captureToggle(device)"></ion-toggle>
         </ion-item>
       </ion-list>
 
