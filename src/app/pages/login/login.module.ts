@@ -7,8 +7,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { LoginPage } from './login.page';
-import { CadastroPage } from '../cadastro/cadastro.page';
-import { CadastroPageModule } from '../cadastro/cadastro.module';
 
 const routes: Routes = [
   {
